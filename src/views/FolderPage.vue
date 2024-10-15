@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-buttons slot="start">
+        <ion-buttons>
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
         <ion-title>{{ $route.params.id }}</ion-title>
@@ -17,6 +17,8 @@
       </ion-header>
 
       <div id="container">
+        awd
+        <v-data-table></v-data-table>
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
       </div>
@@ -24,7 +26,7 @@
   </ion-page>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 </script>
 
