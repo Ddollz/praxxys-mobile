@@ -1,0 +1,7 @@
+{
+  "name": "praxxys-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
