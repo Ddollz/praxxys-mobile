@@ -8,5 +8,5 @@
 
 # Running Mobile Application Android
 1. npx npm run build && npx cap copy
-2. Open Android Studio and run 'App' ![alt text](/readme-img/image.png)
-
+2. Open Android Studio and run 'App'  ![alt text](/readme-img/image.png)
+Note: I am using Pixel 8 API 35 for your reference ![alt text](image2.png) ![alt text](image3.png)
