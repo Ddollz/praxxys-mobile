@@ -2,7 +2,7 @@
 * npm install
 * install android studio (And install all SDK and Create virtual device that are required to run mobile app)
 * Note: for your reference this is what I am using
-![alt text](image2.png) ![alt text](image3.png)
+![alt text](/readme-img/image2.png) ![alt text](/readme-img/image3.png)
 
 # Running Web Host
 1. Npm run dev
