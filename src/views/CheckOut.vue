@@ -48,7 +48,7 @@
         <div style="height: 181px; background-color: #e9ecef; border-radius: 15px" class="d-flex align-start justify-center flex-column w-100 mb-2 px-4">
           <v-row>
             <v-col cols="3" class="d-flex align-center justify-center">
-              <ion-img src="../assets/order/chicken 1.png" alt="" srcset="" style="width: 350px; height: 100px" class="mx-2"></ion-img>
+              <ion-img :src="c.img" alt="" srcset="" style="width: 350px; height: 100px" class="mx-2"></ion-img>
             </v-col>
             <v-col class="d-flex align-start justify-center flex-column">
               <p class="font-weight-bold mb-2">{{ c.label }}</p>
