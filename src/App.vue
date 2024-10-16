@@ -4,25 +4,41 @@
       <ion-menu content-id="main-content" type="overlay">
         <ion-content>
           <ion-list id="inbox-list">
-            <ion-list-header>Inbox</ion-list-header>
-            <ion-note>hi@ionicframework.com</ion-note>
+            <div class="d-flex align-center justify-start ml-4">
+              <div class="mr-6">
+                <v-avatar color="surface-variant" size="56">
+                  <ion-img src="../assets/avatar.svg" alt="" srcset="" />
+                </v-avatar>
+              </div>
+              <div class="d-flex align-center justify-center font-weight-bold" @click="$router.push('loyaltyPoints')">
+                <ion-img src="../assets/crown.svg" alt="" class="mr-6"  srcset=""/>
+                0 Points
+                <v-icon icon="mdi-chevron-right" color="red" />
+              </div>
 
-            <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">
-              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
-                <ion-icon aria-hidden="true" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
-                <ion-label>{{ p.title }}</ion-label>
+            </div>
+            <ion-list-header>Chou Tzuyu</ion-list-header>
+
+            <ion-note style="font-size: 12px">+63 912 345 6789</ion-note>
+
+            <ion-menu-toggle :auto-hide="false" v-for="(p, i) in menu1" :key="i">
+              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }" >
+                <ion-img :src="selectedIndex !== i ? p.logoSrc : p.logoSrcSelected" srcset="" alt="" width="22" class="mr-6" />
+                <p class="font-weight-bold">{{ p.title }}</p>
               </ion-item>
             </ion-menu-toggle>
           </ion-list>
 
           <ion-list id="labels-list">
-            <ion-list-header>Labels</ion-list-header>
-
-            <ion-item v-for="(label, index) in labels" lines="none" :key="index">
-              <ion-icon aria-hidden="true" :ios="bookmarkOutline" :md="bookmarkSharp"></ion-icon>
-              <ion-label>{{ label }}</ion-label>
-            </ion-item>
+            <ion-menu-toggle :auto-hide="false" v-for="(p, i) in menu2" :key="i">
+              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" >
+                <ion-img :src="p.logoSrc" width="22" class="mr-6" />
+                <!-- :class="{ selected: selectedIndex === i }" -->
+                <p class="font-weight-bold">{{ p.title }}</p>
+              </ion-item>
+            </ion-menu-toggle>
           </ion-list>
+          <v-btn color="red text-none" class="px-6 " elevation="0" rounded="lg" >Logout</v-btn>
         </ion-content>
       </ion-menu>
       <ion-router-outlet id="main-content"></ion-router-outlet>
@@ -31,82 +47,79 @@
 </template>
 
 <script setup>
-import {
-  IonApp,
-  IonContent,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonListHeader,
-  IonMenu,
-  IonMenuToggle,
-  IonNote,
-  IonRouterOutlet,
-  IonSplitPane,
-} from '@ionic/vue';
+import { IonApp, IonContent, IonItem, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
 import { ref } from 'vue';
-import {
-  archiveOutline,
-  archiveSharp,
-  bookmarkOutline,
-  bookmarkSharp,
-  heartOutline,
-  heartSharp,
-  mailOutline,
-  mailSharp,
-  paperPlaneOutline,
-  paperPlaneSharp,
-  trashOutline,
-  trashSharp,
-  warningOutline,
-  warningSharp,
-} from 'ionicons/icons';
 
 const selectedIndex = ref(0);
-const appPages = [
+const menu1 = [
   {
-    title: 'Inbox',
-    url: '/folder/Inbox',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp,
+    title: 'Home',
+    url: '/',
+    logoSrc: '../assets/logo.svg',
+    logoSrcSelected: '../assets/logo.svg',
   },
   {
-    title: 'Outbox',
-    url: '/folder/Outbox',
-    iosIcon: paperPlaneOutline,
-    mdIcon: paperPlaneSharp,
+    title: 'Order Now!',
+    url: '/order',
+    logoSrc: '../assets/meat.svg',
+    logoSrcSelected: '../assets/meat2.svg',
   },
   {
-    title: 'Favorites',
-    url: '/folder/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp,
+    title: 'Notifications',
+    url: '/folder/notofication',
+    logoSrc: '../assets/bell.svg',
+    logoSrcSelected: '../assets/bell.svg',
   },
   {
-    title: 'Archived',
-    url: '/folder/Archived',
-    iosIcon: archiveOutline,
-    mdIcon: archiveSharp,
+    title: 'Store Locator',
+    url: '/folder/store',
+    logoSrc: '../assets/store.svg',
+    logoSrcSelected: '../assets/store.svg',
   },
   {
-    title: 'Trash',
-    url: '/folder/Trash',
-    iosIcon: trashOutline,
-    mdIcon: trashSharp,
-  },
-  {
-    title: 'Spam',
-    url: '/folder/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp,
+    title: "Faq's",
+    url: '/folder/faqs',
+    logoSrc: '../assets/question-mark.svg',
+    logoSrcSelected: '../assets/question-mark.svg',
   },
 ];
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+const menu2 = [
+  {
+    title: 'My Orders',
+    url: '/home',
+    logoSrc: '../assets/shopping.svg',
+    logoSrcSelected: '../assets/shopping.svg',
+  },
+  {
+    title: 'My Account',
+    url: '/folder/Outbox',
+    logoSrc: '../assets/placeholder.svg',
+    logoSrcSelected: '../assets/placeholder.svg',
+  },
+  {
+    title: 'My Favorites',
+    url: '/folder/Favorites',
+    logoSrc: '../assets/heart.svg',
+    logoSrcSelected: '../assets/heart.svg',
+  },
+  {
+    title: 'Order Tracker',
+    url: '/folder/Archived',
+    logoSrc: '../assets/location-marker.svg',
+    logoSrcSelected: '../assets/location-marker.svg',
+  },
+  {
+    title: 'Order History',
+    url: '/folder/Trash',
+    logoSrc: '../assets/history.svg',
+    logoSrcSelected: '../assets/history.svg',
+  },
+];
 
 const path = window.location.pathname.split('folder/')[1];
 if (path !== undefined) {
-  selectedIndex.value = appPages.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
+  let combineMenuArr = menu1.concat(menu2);
+  selectedIndex.value = combineMenuArr.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
 }
 </script>
 
